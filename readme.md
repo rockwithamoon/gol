@@ -17,6 +17,8 @@ import (
 )
 
 func main() {
+    defer gol.Debug("Debug message")
+
     // with printf style arguments
     gol.Info("Info %v", "message")
 
@@ -26,16 +28,15 @@ func main() {
 
     // set custom level
     gol.SetLevel(gol.DEBUG)
-    gol.Debug("Debug message")
 }
 ```
 
 Will output
 
 ```s
-INFO: Info message (/Users/user/go/src/prog/main.go,:10 main.main)
-ERROR: Error (/Users/user/go/src/prog/main.go,:14 main.main)
-DEBUG: Debug message (/Users/user/go/src/prog/main.go,:18 main.main)
+INFO: Info message (/Users/mitsis/go/src/x/main.go,:12 main.main)
+ERROR: Error (/Users/mitsis/go/src/x/main.go,:16 main.main)
+DEBUG: Debug message (/Users/mitsis/go/src/x/main.go,:20 main.main)
 ```
 
 ### Reference
