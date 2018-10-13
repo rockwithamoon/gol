@@ -9,24 +9,24 @@ func TestSet_1(t *testing.T) {
 }
 
 func TestSet_2(t *testing.T) {
-	SetTrace(ON)
+	SetTrace(true)
 	if v := SetLevel(INFO); !v {
 		t.Error("Set failed with known level")
 	}
 }
 
 func TestSet_3(t *testing.T) {
-	if v := SetLevel(ON); v {
+	if v := SetLevel(100); v {
 		t.Error("Set succeded on unkown level")
 	}
 }
 
 func TestSet_4(t *testing.T) {
-	SetTrace(OFF)
+	SetTrace(false)
 	if v, _ := Info("No trace here"); v > 21 {
 		t.Error("Set failed to turn off trace")
 	}
-	SetTrace(ON)
+	SetTrace(true)
 }
 
 func TestFatal_Yes(t *testing.T) {
