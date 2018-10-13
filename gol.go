@@ -21,7 +21,7 @@ type GOL int32
 type gol struct {
 	n     GOL
 	str   string
-	trace GOL
+	trace bool
 }
 
 // Supported log levels and trace status
@@ -32,8 +32,6 @@ const (
 	INFO
 	DEBUG
 	TRACE
-	ON
-	OFF
 )
 
 var errorStrings = [...]string{
@@ -43,8 +41,6 @@ var errorStrings = [...]string{
 	"INFO",
 	"DEBUG",
 	"TRACE",
-	"ON",
-	"OFF",
 }
 
 func (c GOL) String() string {
@@ -60,15 +56,11 @@ func init() {
 	lv = new(gol)
 	lv.n = INFO
 	lv.str = INFO.String()
-	lv.trace = ON
+	lv.trace = true
 }
 
-func SetTrace(trace GOL) bool {
-	if trace >= ON && trace <= OFF {
-		lv.trace = trace
-		return true
-	}
-	return false
+func SetTrace(trace bool) {
+	lv.trace = trace
 }
 
 func SetLevel(lev GOL) bool {
@@ -144,7 +136,7 @@ func printf(s string, v interface{}, a ...interface{}) (n int, err error) {
 	}
 
 	f = strings.TrimSuffix(f, "\n")
-	if lv.trace == ON {
+	if lv.trace == true {
 		f = s + ": " + f + ftrace()
 	} else {
 		f = s + ": " + f + "\n"
