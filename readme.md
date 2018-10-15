@@ -34,9 +34,9 @@ func main() {
 Will output
 
 ```s
-INFO: Info message (/Users/mitsis/go/src/x/main.go,:12 main.main)
-ERROR: Error (/Users/mitsis/go/src/x/main.go,:16 main.main)
-DEBUG: Debug message (/Users/mitsis/go/src/x/main.go,:20 main.main)
+INFO: Info message (/Users/user/go/src/x/main.go,:12 main.main)
+ERROR: Error (/Users/user/go/src/x/main.go,:16 main.main)
+DEBUG: Debug message (/Users/user/go/src/x/main.go,:20 main.main)
 ```
 
 ### Reference
